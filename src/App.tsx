@@ -17,7 +17,7 @@ function App() {
     <Context.Provider value={a}>
       <div className="cover flex items-center justify-center">
         <div className="parent ">
-          <div className="topColoredCon   w-[375px] h-[240px]">
+          <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile">
             <Back />
           </div>
           <div></div>
