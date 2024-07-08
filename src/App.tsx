@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { createContext, useState } from "react";
 import mobileBackkground from "/images/bg-main-mobile.png";
 import Back from "./components/Back";
+import Front from "./components/Front";
 
 const Context = createContext(0);
 
@@ -19,6 +20,7 @@ function App() {
         <div className="parent  ">
           <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile pt-[32px]">
             <Back />
+            <Front />
           </div>
           <div></div>
         </div>
