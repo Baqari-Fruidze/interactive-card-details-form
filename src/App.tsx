@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 import mobileBackkground from "/images/bg-main-mobile.png";
 import Back from "./components/Back";
 import Front from "./components/Front";
+import Completed from "./components/Completed";
 
 const Context = createContext(0);
 
@@ -22,6 +23,7 @@ function App() {
             <Back />
             <Front />
           </div>
+          <Completed />
           <div></div>
         </div>
       </div>
