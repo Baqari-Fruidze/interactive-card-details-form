@@ -18,7 +18,7 @@ function App() {
   return (
     <Context.Provider value={a}>
       <div className="cover flex items-center justify-center">
-        <div className="parent  ">
+        <div className="parent flex flex-col ">
           <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile pt-[32px]">
             <Back />
             <Front />
