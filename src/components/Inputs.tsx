@@ -8,9 +8,12 @@ export default function Inputs() {
     watch,
     formState: { errors },
   } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div className="parent px-[24px] pt-[70px]">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="nameCon flex flex-col">
           <label
             htmlFor="name"
@@ -21,6 +24,7 @@ export default function Inputs() {
           <input
             type="text"
             id="name"
+            {...register("name")}
             placeholder="e.g. Jane Appleseed"
             className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
           />
@@ -33,8 +37,9 @@ export default function Inputs() {
             Card Number
           </label>
           <input
-            type="text"
+            type="number"
             id="cardNumber"
+            {...register("cardNumber")}
             placeholder="e.g. 1234 5678 9123 0000"
             className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
           />
@@ -45,12 +50,14 @@ export default function Inputs() {
               Exp. Date (MM/YY)
             </label>
             <input
-              type="text"
+              type="number"
+              {...register("month")}
               placeholder="MM"
               className=" mr-[8px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
             />
             <input
-              type="text"
+              type="number"
+              {...register("year")}
               placeholder="YY"
               className=" mt-[9px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
             />
@@ -63,8 +70,10 @@ export default function Inputs() {
               CVC
             </label>
             <input
-              type="text"
+              type="number"
               id="cvc"
+              {...register("cvc")}
+              placeholder="e.g. 123"
               className="text-left w-[166px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] pl-[16px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
             />
           </div>
