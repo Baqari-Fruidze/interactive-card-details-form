@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "../schema/Yup";
 
 export default function Inputs() {
   const {
@@ -7,7 +9,7 @@ export default function Inputs() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(schema) });
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -28,6 +30,7 @@ export default function Inputs() {
             placeholder="e.g. Jane Appleseed"
             className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
           />
+          <span>{errors.name?.message}</span>
         </div>
         <div className="cardNumber flex flex-col">
           <label
