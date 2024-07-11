@@ -39,18 +39,39 @@ export default function Inputs() {
             className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
           />
         </div>
-        <div>
-          <div>
-            <label>Exp. Date (MM/YY)</label>
-            <input type="text" />
-            <input type="text" />
+        <div className="flex items-center mb-[28px]">
+          <div className="mr-[11px] w-[152px] ">
+            <label className="text-[12px] text-[#21092F] font-medium tracking-[2px] uppercase ">
+              Exp. Date (MM/YY)
+            </label>
+            <input
+              type="text"
+              placeholder="MM"
+              className=" mr-[8px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+            />
+            <input
+              type="text"
+              placeholder="YY"
+              className=" mt-[9px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+            />
           </div>
-          <div>
-            <label htmlFor="cvc">CVC</label>
-            <input type="text" id="cvc" />
+          <div className=" flex flex-col ">
+            <label
+              htmlFor="cvc"
+              className="text-[12px] text-[#21092F] font-medium tracking-[2px] uppercase mb-[9px]"
+            >
+              CVC
+            </label>
+            <input
+              type="text"
+              id="cvc"
+              className="text-left w-[166px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] pl-[16px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+            />
           </div>
         </div>
-        <button>Confirm</button>
+        <button className="bg-[#21092F] rounded-[8px] border-none w-full py-[10px] text-[#fff] text-[18px] font-medium">
+          Confirm
+        </button>
       </form>
     </div>
   );
