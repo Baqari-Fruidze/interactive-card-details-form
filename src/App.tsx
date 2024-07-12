@@ -4,28 +4,24 @@ import Back from "./components/Back";
 import Front from "./components/Front";
 import Completed from "./components/Completed";
 import Inputs from "./components/Inputs";
-
-export const Context = createContext({});
+import { schema } from "./schema/Yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 function App() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
+  const methods = useForm({ resolver: yupResolver(schema) });
   return (
-    <div className="cover flex items-center justify-center">
-      <div className="parent flex flex-col ">
-        <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile pt-[32px]">
-          <Back />
-          <Front />
+    <FormProvider {...methods}>
+      <div className="cover flex items-center justify-center">
+        <div className="parent flex flex-col ">
+          <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile pt-[32px]">
+            <Back />
+            <Front />
+          </div>
+          {/* <Completed /> */}
+          <Inputs />
         </div>
-        {/* <Completed /> */}
-        <Inputs />
       </div>
-    </div>
+    </FormProvider>
   );
 }
 

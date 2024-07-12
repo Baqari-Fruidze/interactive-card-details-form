@@ -1,18 +1,20 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { ReactNode } from "react";
+import { useForm, useFormContext } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../schema/Yup";
+import InputMask from "react-input-mask";
 
 export default function Inputs() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  } = useFormContext();
+
   const onSubmit = (data) => {
     console.log(data);
   };
+
   return (
     <div className="parent px-[24px] pt-[70px]">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -28,10 +30,14 @@ export default function Inputs() {
             id="name"
             {...register("name")}
             placeholder="e.g. Jane Appleseed"
-            className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+            className={`rounded-[8px]   ${
+              errors.name
+                ? "border-[1px] border-[solid] border-[#FF5050]"
+                : "border-[1px] border-[solid] border-[#DFDEE0]"
+            } py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase `}
           />
           <span className=" absolute text-[12px] text-[#FF5050] font-medium bottom-[1px]">
-            {errors.name?.message}
+            {errors.name?.message as ReactNode}
           </span>
         </div>
         <div className="cardNumber flex flex-col relative">
@@ -41,7 +47,8 @@ export default function Inputs() {
           >
             Card Number
           </label>
-          <input
+          <InputMask
+            mask="9999 9999 9999 9999"
             type="text"
             id="cardNumber"
             {...register("cardNumber")}
@@ -49,7 +56,7 @@ export default function Inputs() {
             className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
           />
           <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[1px]">
-            {errors.cardNumber?.message}
+            {errors.cardNumber?.message as ReactNode}
           </span>
         </div>
         <div className="flex items-center mb-[28px]">
@@ -70,10 +77,10 @@ export default function Inputs() {
               className=" mt-[9px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
             />
             <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[-20px] left-0">
-              {errors.month?.message}
+              {errors.month?.message as ReactNode}
             </span>
             <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[-20px] right-0">
-              {errors.year?.message}
+              {errors.year?.message as ReactNode}
             </span>
           </div>
           <div className=" flex flex-col relative ">
@@ -91,7 +98,7 @@ export default function Inputs() {
               className="text-left w-[166px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] pl-[16px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
             />
             <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[-20px] left-0">
-              {errors.cvc?.message}
+              {errors.cvc?.message as ReactNode}
             </span>
           </div>
         </div>

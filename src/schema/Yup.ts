@@ -8,8 +8,8 @@ export const schema = yup.object({
   cardNumber: yup
     .string()
     .required("can't be blank")
-    .matches(/^\d+$/, "Must be only numbers")
-    .length(16, "CardNumber must contain 16 number"),
+    .length(19, "CardNumber must contain 16 number")
+    .matches(/^[0-9]+(?:\s[0-9]+)*$/, "CardNumber must contain 16 number"),
   month: yup
     .string()
     .required("can't be blank")
