@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      desktop: "1440px",
+    },
     extend: {
       backgroundImage: {
         "background-mobile": "url('/images/bg-main-mobile.png')",

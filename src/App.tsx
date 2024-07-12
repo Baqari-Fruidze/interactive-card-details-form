@@ -6,9 +6,11 @@ import Completed from "./components/Completed";
 import Inputs from "./components/Inputs";
 import { schema } from "./schema/Yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 
 function App() {
   const methods = useForm({ resolver: yupResolver(schema) });
+  const [show, setShow] = useState<boolean>(false);
   return (
     <FormProvider {...methods}>
       <div className="cover flex items-center justify-center">
@@ -17,8 +19,7 @@ function App() {
             <Back />
             <Front />
           </div>
-          {/* <Completed /> */}
-          <Inputs />
+          {show ? <Completed /> : <Inputs show={show} setShow={setShow} />}
         </div>
       </div>
     </FormProvider>

@@ -1,18 +1,21 @@
 import React, { ReactNode } from "react";
-import { useForm, useFormContext } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../schema/Yup";
+import { useFormContext } from "react-hook-form";
 import InputMask from "react-input-mask";
 
-export default function Inputs() {
+export default function Inputs({
+  setShow,
+}: {
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useFormContext();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
+    setShow(true);
   };
 
   return (
@@ -34,7 +37,7 @@ export default function Inputs() {
               errors.name
                 ? "border-[1px] border-[solid] border-[#FF5050]"
                 : "border-[1px] border-[solid] border-[#DFDEE0]"
-            } py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase `}
+            } py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase`}
           />
           <span className=" absolute text-[12px] text-[#FF5050] font-medium bottom-[1px]">
             {errors.name?.message as ReactNode}
@@ -53,7 +56,11 @@ export default function Inputs() {
             id="cardNumber"
             {...register("cardNumber")}
             placeholder="e.g. 1234 5678 9123 0000"
-            className="rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+            className={`rounded-[8px] ${
+              errors.cardNumber
+                ? "border-[1px] border-[solid] border-[#FF5050]"
+                : "border-[1px] border-[solid] border-[#DFDEE0]"
+            } py-[10px] outline-none pl-[16px] mb-[20px] placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase `}
           />
           <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[1px]">
             {errors.cardNumber?.message as ReactNode}
@@ -68,13 +75,21 @@ export default function Inputs() {
               type="text"
               {...register("month")}
               placeholder="MM"
-              className=" mr-[8px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+              className={`  mr-[8px] text-center w-[72px] rounded-[8px] ${
+                errors.month
+                  ? "border-[1px] border-[solid] border-[#FF5050]"
+                  : "border-[1px] border-[solid] border-[#DFDEE0]"
+              } py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase`}
             />
             <input
               type="text"
               {...register("year")}
               placeholder="YY"
-              className=" mt-[9px] text-center w-[72px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+              className={`mt-[9px] text-center w-[72px] rounded-[8px] ${
+                errors.year
+                  ? "border-[1px] border-[solid] border-[#FF5050]"
+                  : "border-[1px] border-[solid] border-[#DFDEE0]"
+              } py-[10px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase  `}
             />
             <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[-20px] left-0">
               {errors.month?.message as ReactNode}
@@ -95,7 +110,11 @@ export default function Inputs() {
               id="cvc"
               {...register("cvc")}
               placeholder="e.g. 123"
-              className="text-left w-[166px] rounded-[8px] border-[1px] border-[solid] border-[#DFDEE0] py-[10px] pl-[16px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase"
+              className={`text-left w-[166px] rounded-[8px] ${
+                errors.cvc
+                  ? "border-[1px] border-[solid] border-[#FF5050]"
+                  : "border-[1px] border-[solid] border-[#DFDEE0]"
+              } py-[10px] pl-[16px] outline-none   placeholder:opacity-25 placeholder:text-[18px] placeholder:font-medium placeholder:uppercase`}
             />
             <span className="absolute text-[12px] text-[#FF5050] font-medium bottom-[-20px] left-0">
               {errors.cvc?.message as ReactNode}
