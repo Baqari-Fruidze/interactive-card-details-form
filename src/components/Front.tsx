@@ -8,7 +8,6 @@ export default function Front() {
   const cardNumber = watch("cardNumber") || "";
   const month = watch("month") || "";
   const year = watch("year") || "";
-  const cvc = watch("cvc") || "";
   console.log(useFormContext());
   return (
     <div className="w-[285px] h-[156px] bg-card-front bg-no-repeat bg-[length:285px_156px] ml-[17px] mt-[-68px] pt-[17.6px] pr-[20.89px]  pl-[19px] ">

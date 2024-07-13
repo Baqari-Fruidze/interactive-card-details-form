@@ -14,8 +14,8 @@ function App() {
   return (
     <FormProvider {...methods}>
       <div className="cover flex items-center justify-center">
-        <div className="parent flex flex-col ">
-          <div className="topColoredCon   w-[375px] h-[240px] bg-background-mobile pt-[32px]">
+        <div className="parent flex flex-col desktop:flex-row">
+          <div className="topColoredCon w-[375px] h-[240px] bg-background-mobile pt-[32px] desktop:w-[483px] desktop:h-screen desktop:bg-background-desktop desktop:pt-[150px] desktop:mr-[349px]">
             <Back />
             <Front />
           </div>
