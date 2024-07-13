@@ -2,7 +2,7 @@ import React from "react";
 import completed from "/images/icon-complete.svg";
 export default function Completed() {
   return (
-    <div className=" flex flex-col items-center px-[24px]">
+    <div className=" flex flex-col items-center px-[24px] desktop:justify-center">
       <img
         src={completed}
         alt=""
