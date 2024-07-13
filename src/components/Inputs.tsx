@@ -19,9 +19,9 @@ export default function Inputs({
   };
 
   return (
-    <div className="parent px-[24px] pt-[70px]">
+    <div className="parent px-[24px] pt-[70px] desktop:flex flex-col justify-center">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="nameCon flex flex-col relative">
+        <div className="nameCon flex flex-col relative ">
           <label
             htmlFor="name"
             className="labelCommonStyles text-[12px] text-[#21092F] font-medium tracking-[2px] uppercase mb-[9px]"
