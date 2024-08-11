@@ -1,5 +1,4 @@
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
-import mobileBackkground from "/images/bg-main-mobile.png";
+import { useForm, FormProvider } from "react-hook-form";
 import Back from "./components/Back";
 import Front from "./components/Front";
 import Completed from "./components/Completed";
